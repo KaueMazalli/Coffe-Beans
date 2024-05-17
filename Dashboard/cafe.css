@@ -1,0 +1,91 @@
+/* Estilo para a tabela */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+/* Estilo para o formulário */
+form {
+    margin-bottom: 20px;
+}
+
+/* Estilo para os botões de ação */
+.action-buttons button {
+    margin-right: 5px;
+}
+
+/* Estilo para a paginação */
+.pagination {
+    margin-top: 20px;
+}
+
+.pagination button {
+    margin-right: 5px;
+}
+
+/* Esconder a paginação por padrão */
+.pagination {
+    display: none;
+}
+
+/* Estilo para o campo de entrada e seleção no formulário */
+form input[type="text"],
+form input[type="number"],
+form textarea,
+form select {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+/* Estilo para o botão no formulário */
+form button[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+form button[type="submit"]:hover {
+    background-color: #45a049;
+}
+/* Estilo para os botões de paginação */
+.pagination button,
+.edit-button,
+.delete-button {
+    vertical-align: middle;
+    margin-right: 5px;
+    background-color: #45a049;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.pagination button:hover,
+.edit-button:hover,
+.delete-button:hover {
+    background-color: #45a049;
+}
+

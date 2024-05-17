@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="css/login.css">
+    <style>
+        /* Estilo adicional para o botão de login com o Google */
+        .btn-google {
+            background-color: #db4437;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        .btn-google:hover {
+            background-color: #c1351d;
+        }.btn-login {
+            background-color: #db4437;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        .btn-login:hover {
+            background-color: #c1351d;
+        }
+    </style>
+</head>
+
+<body>
+    <a href="home.html" class="back-link"> Voltar</a>
+    <section class="forms-section">
+        <h1 class="section-title"></h1>
+        <div class="forms">
+            <div class="form-wrapper is-active">
+                <button type="button" class="switcher switcher-login">
+                    Login
+                    <span class="underline"></span>
+                </button>
+                <form class="form form-login" id="loginForm">
+                    <fieldset>
+                        
+                        <div class="input-block">
+                            <label for="login-email">E-mail</label>
+                            <input id="login-email" type="email" required>
+                        </div>
+                        <div class="input-block">
+                            <label for="login-password">Senha</label>
+                            <input id="login-password" type="password" required>
+                        </div>
+                    </fieldset>
+                    <button type="button" class="btn-login" onclick="login()">Login</button>
+                </form>
+                <div id="buttonDiv">
+                    <!-- Botão para fazer login com o Google -->
+                    <button id="login-button-google" onclick="googleSignIn()" class="btn-google">Login com Google</button>
+                </div>
+                <div>
+                    <!-- Link para a página de cadastro -->
+                    <p>Não tem uma conta? <a href="cadastro.html">Cadastre-se aqui</a>.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Inclua as bibliotecas do Firebase necessárias -->
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+    <script src="https://unpkg.com/jwt-decode/build/jwt-decode.js"></script>
+
+    <script>
+        function validateForm() {
+            var email = document.getElementById("signup-email").value;
+        }
+        // Função para fazer login com o Google
+        function googleSignIn() {
+            // Solicitação de login com o Google
+            google.accounts.id.prompt();
+        }
+
+        // Função para lidar com a resposta de credenciais
+        function handleCredentialResponse(response) {
+            // Redirecionar para a página de dashboard após o login bem-sucedido com o Google
+            window.location.href = "Dashboard/dash.html";
+        }
+
+        // Função para fazer login
+        function login() {
+            var email = document.getElementById("login-email").value;
+            var password = document.getElementById("login-password").value;
+
+            // Validar o formato do email usando uma expressão regular
+            var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                alert("Por favor, insira um endereço de e-mail válido.");
+                return;
+            }
+
+            // Validar a senha
+            var passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+            if (!passwordRegex.test(password)) {
+                alert("A senha deve conter pelo menos 8 caracteres, uma letra maiúscula, uma letra minúscula, um número e um caractere especial.");
+                return;
+            }
+
+            // Redirecionar apenas aqueles que fizeram login com o Google para a dashboard
+            // Senão, exibir um alerta informando que o login foi feito com sucesso e redirecionar para a página inicial
+            alert("Login com sucesso!");
+            window.location.href = "home.html";
+        }
+
+        // Evento de carregamento da página
+        window.onload = function () {
+            // Inicializa a biblioteca google.accounts.id com o ID do cliente e a função de retorno de chamada
+            google.accounts.id.initialize({
+                client_id: "545691340748-tn5c2rh5ki36f7khil65jtikgl9aujgb.apps.googleusercontent.com",
+                callback: handleCredentialResponse
+            });
+        }        
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="cafe.css">
+    
+    <title>Cafés</title>
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <h2>Menu</h2>
+            <ul>
+                <li><a href="dash.html">Dashboard</a></li>
+                <li><a href="relatorios.html">Relatórios</a></li>
+                <li><a href="cafe.html">Cafés</a></li>
+                <li><a href="configuracoes.html">Configurações</a></li>
+            </ul>
+        </div>
+        <div class="main-content">
+            <header>
+                <h2>Cafés</h2>
+            </header>
+            <div class="cafes">
+                <h3>Cadastrar Café</h3>
+                <form id="cafe-form">
+                    <label for="name">Nome do Café:</label>
+                    <input type="text" id="name" name="name" required>
+                    <label for="origin">Origem:</label>
+                    <select id="origin" name="origin" required>
+                        <option value="">Selecione a Origem</option>
+                        <option value="Brasil">Brasil</option>
+                        <option value="Colômbia">Colômbia</option>
+                        <option value="Outro">Outro</option>
+                    </select>
+                    <label for="roast-level">Nível de Torra:</label>
+                    <select id="roast-level" name="roast-level" required>
+                        <option value="">Selecione a Torra</option>
+                        <option value="Torra Clara">Torra Clara</option>
+                        <option value="Torra Média">Torra Média</option>
+                        <option value="Torra Escura">Torra Escura</option>
+                    </select>
+                    <label for="description">Descrição:</label>
+                    <textarea id="description" name="description" rows="4" required></textarea>
+                    <label for="price">Preço:</label>
+                    <input type="number" id="price" name="price" step="0.01" required>
+                    <input type="hidden" id="datetime" name="datetime">
+                    <button type="submit">Cadastrar</button>
+                </form>
+                
+                <div class="cafes">
+                    <h3>Lista de Cafés</h3>
+                    <label for="torra-filter">Filtrar por Nível de Torra:</label>
+                    <select id="torra-filter">
+                        <option value="">Todos</option>
+                        <option value="Torra Clara">Torra Clara</option>
+                        <option value="Torra Média">Torra Média</option>
+                        <option value="Torra Escura">Torra Escura</option>
+                        
+                    </select>
+                    
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Nome</th>
+                                <th>Origem</th>
+                                <th>Nível de Torra</th>
+                                <th>Descrição</th>
+                                <th>Preço</th>
+                                <th>Data de Cadastro</th>
+                                <th>Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody id="cafe-list">
+                            <!-- Pré-cadastrando tres produtos -->
+                            <tr>
+                                <td>Café 1</td>
+                                <td>Brasil</td>
+                                <td>Torra Clara</td>
+                                <td>Descrição do Café 1</td>
+                                <td>R$ 10.00</td>
+                                <td>2024-03-23 12:00:00</td>
+                                <td>
+                                    <button class="edit-button">Editar</button>
+                                    <button class="delete-button">Remover</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Café 2</td>
+                                <td>Colômbia</td>
+                                <td>Torra Média</td>
+                                <td>Descrição do Café 2</td>
+                                <td>R$ 12.50</td>
+                                <td>2024-03-23 12:15:00</td>
+                                <td>
+                                    <button class="edit-button">Editar</button>
+                                    <button class="delete-button">Remover</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Café 3</td>
+                                <td>Outro</td>
+                                <td>Torra Escura</td>
+                                <td>Descrição do Café 3</td>
+                                <td>R$ 15.00</td>
+                                <td>2024-03-23 12:30:00</td>
+                                <td>
+                                    <button class="edit-button">Editar</button>
+                                    <button class="delete-button">Remover</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="pagination">
+                <button id="prevPage">Anterior</button>
+                <span id="currentPage">Página 1</span>
+                <button id="nextPage">Próximo</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="cafe.js"></script>
+</body>
+</html>

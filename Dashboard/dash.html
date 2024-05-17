@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coffe&Beans</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <h2>Menu</h2>
+            <ul>
+                <li><a href="dash.html">Dashboard</a></li>
+                <li><a href="relatorios.html">Relatórios</a></li>
+                <li><a href="cafe.html">Cafés</a></li>
+                <li><a href="configuracoes.html">Configurações</a></li>
+            </ul>
+        </div>
+        <div class="main-content">
+            <header>
+                <h2>Dashboard Coffe&Beans</h2>
+                <div class="search-container">
+                    <input type="text" placeholder="Pesquisar...">
+                    <button type="submit">Pesquisar</button>
+                </div>
+            </header>
+            <div class="cards">
+                <div class="card">
+                    <h3>Total de Vendas</h3>
+                    <p>R$ 15000</p>
+                </div>
+                <div class="card">
+                    <h3>Usuários Ativos</h3>
+                    <p>500</p>
+                </div>
+                <div class="card">
+                    <h3>Novos Pedidos</h3>
+                    <p>50</p>
+                </div>
+            </div>
+            <div class="charts">
+                <div class="chart-container">
+                    <canvas id="line-chart"></canvas>
+                </div>
+                <div class="chart-container">
+                    <canvas id="bar-chart"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="scripts.js"></script>
+</body>
+</html>
